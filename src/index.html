@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
     <form class="search-form" id="search-form">
@@ -15,10 +15,11 @@
         autocomplete="off"
         placeholder="Search images..."
       />
-      <button type="submit">Search</button>
+      <button class="btn-search" type="submit">Search</button>
     </form>
+    <div class="gallery"></div>
+    <button type="button" class="load-more">Load more</button>
 
-    <include src="./partials/example.html"></include>
     <script src="./index.js" type="module"></script>
   </body>
 </html>
