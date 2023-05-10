@@ -2,7 +2,13 @@ import { Notify } from 'notiflix';
 import { refs } from './refs';
 import { fetchPictures } from './fetchPictures';
 import { renderPictures } from './render';
-import { state } from '..';
+
+const state = {
+  currentPage: 1,
+  perPage: 40,
+  totalHits: null,
+  symbol: '',
+};
 
 export async function searchInputPictures(evt) {
   evt.preventDefault();
