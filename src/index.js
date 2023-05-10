@@ -12,5 +12,3 @@ export const state = {
   totalHits: null,
   symbol: '',
 };
-
-// index
