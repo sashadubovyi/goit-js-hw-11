@@ -31,7 +31,7 @@ function fetchPictures(symbol) {
 
   return axios
     .get(`${BASE_URL}${END_POINT}`, {
-      params: params,
+      params,
     })
     .then(response => {
       if (response.status !== 200) {
