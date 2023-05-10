@@ -18,7 +18,7 @@ refs.btnLoadMore.addEventListener('click', loadMorePictures);
 
 function fetchPictures(symbol) {
   const BASE_URL = 'https://pixabay.com';
-  const END_POINT = '/api';
+  const END_POINT = '/api/';
   const params = {
     key: '36218218-c6664bdfcb4076b08e84b91e8',
     q: symbol,
@@ -31,7 +31,7 @@ function fetchPictures(symbol) {
 
   return axios
     .get(`${BASE_URL}${END_POINT}`, {
-      params,
+      params: params,
     })
     .then(response => {
       if (response.status !== 200) {
