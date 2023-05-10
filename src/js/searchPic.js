@@ -40,6 +40,7 @@ export async function searchInputPictures(evt) {
 
 export async function loadMorePictures() {
   state.currentPage += 1;
+
   state.symbol = refs.input.value;
 
   const data = await fetchPictures(state);
