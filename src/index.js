@@ -16,7 +16,7 @@ refs.btnLoadMore.style.visibility = 'hidden';
 refs.form.addEventListener('submit', searchInputPictures);
 refs.btnLoadMore.addEventListener('click', loadMorePictures);
 
-function fetchPictures(symbol) {
+async function fetchPictures(symbol) {
   const BASE_URL = 'https://pixabay.com';
   const END_POINT = '/api/';
   const params = {
@@ -29,19 +29,16 @@ function fetchPictures(symbol) {
     per_page: perPage,
   };
 
-  return axios
-    .get(`${BASE_URL}${END_POINT}`, {
-      params: params,
-    })
-    .then(response => {
-      if (response.status !== 200) {
-        throw new Error(response.status);
-      }
-      return response.data;
-    });
+  const response = await axios.get(`${BASE_URL}${END_POINT}`, {
+    params: params,
+  });
+  if (response.status !== 200) {
+    throw new Error(response.status);
+  }
+  return response.data;
 }
 
-function searchInputPictures(evt) {
+async function searchInputPictures(evt) {
   evt.preventDefault();
   currentPage = 1;
 
@@ -54,41 +51,40 @@ function searchInputPictures(evt) {
 
   refs.gallery.innerHTML = '';
 
-  fetchPictures(inputWords)
-    .then(data => {
-      console.log(data);
+  try {
+    const data = await fetchPictures(inputWords);
+    console.log(data);
 
-      if (data.hits.length === 0) {
-        Notify.failure(
-          'Sorry, there are no images matching your search query. Please try again.'
-        );
-        return;
-      }
-      totalHits = data.totalHits;
-      renderPictures(data.hits);
-      updateLoadMoreButton();
-    })
-    .catch(error => {
+    if (data.hits.length === 0) {
       Notify.failure(
-        'Oops! Something went wrong while loading the page. Please try again later.'
+        'Sorry, there are no images matching your search query. Please try again.'
       );
-    });
+      return;
+    }
+    totalHits = data.totalHits;
+    renderPictures(data.hits);
+    updateLoadMoreButton();
+  } catch (error) {
+    Notify.failure(
+      'Oops! Something went wrong while loading the page. Please try again later.'
+    );
+  }
 }
 
-function loadMorePictures(evt) {
+async function loadMorePictures() {
   currentPage += 1;
   const inputWords = refs.input.value;
 
-  fetchPictures(inputWords).then(data => {
-    renderPictures(data.hits);
-    updateLoadMoreButton();
-  });
+  const data = await fetchPictures(inputWords);
+  renderPictures(data.hits);
+  updateLoadMoreButton();
 }
 
 function updateLoadMoreButton() {
   const loadedPictures = currentPage * perPage;
   if (loadedPictures >= totalHits) {
     refs.btnLoadMore.style.visibility = 'hidden';
+    Notify.info('These are all the images that correspond to your request.');
   } else {
     refs.btnLoadMore.style.visibility = 'visible';
   }
