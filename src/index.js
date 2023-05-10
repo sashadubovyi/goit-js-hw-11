@@ -40,6 +40,8 @@ async function fetchPictures(symbol) {
 
 async function searchInputPictures(evt) {
   evt.preventDefault();
+  window.scrollTo(0, 0);
+
   currentPage = 1;
 
   const inputWords = refs.input.value;
