@@ -102,16 +102,16 @@ function renderPictures(hits) {
       <img src="${webformatURL}" alt="${tags}" loading="lazy" />
         <div class="info">
             <p class="info-item">
-                Likes: <b>${likes}</b>
+                Likes: <b>${likes.toLocaleString()}</b>
             </p>
             <p class="info-item">
-                Views: <b>${views}</b>
+                Views: <b>${views.toLocaleString()}</b>
             </p>
             <p class="info-item">
-                Comments: <b>${comments}</b>
+                Comments: <b>${comments.toLocaleString()}</b>
             </p>
             <p class="info-item">
-                Downloads: <b>${downloads}</b>
+                Downloads: <b>${downloads.toLocaleString()}</b>
             </p>
         </div>
     </div>
