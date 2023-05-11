@@ -3,9 +3,11 @@ export function renderPictures(hits) {
     .map(data => {
       return `
     <div class="photo-card">
-      <a class="gallery__link" href="${data.largeImageURL}"><img src="${
-        data.webformatURL
-      }" alt="${data.tags}" loading="lazy" /></a>
+      <a class="gallery__link" href="${
+        data.largeImageURL
+      }"><img class="web-img" src="${data.webformatURL}" alt="${
+        data.tags
+      }" loading="lazy" /></a>
         <div class="info">
             <p class="info-item">
                 Likes: <b>${data.likes.toLocaleString()}</b>

@@ -74,14 +74,14 @@ input {
   scale: 1.01;
 }
 
-img {
+.web-img {
   width: 500px;
   height: 300px;
   filter: grayscale(95%);
   transition: filter 0.3s ease-in-out;
 }
 
-img:hover {
+.web-img:hover {
   filter: grayscale(0%);
 }
 
