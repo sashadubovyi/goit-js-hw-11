@@ -13,7 +13,7 @@ const state = {
   totalHits: null,
   symbol: '',
 };
-
+// load pictures after search
 export async function searchInputPictures(evt) {
   evt.preventDefault();
   window.scrollTo(0, 0);
@@ -49,7 +49,7 @@ export async function searchInputPictures(evt) {
     );
   }
 }
-
+// load more pictures
 export async function loadMorePictures() {
   state.currentPage += 1;
 
@@ -70,7 +70,7 @@ function updateLoadMoreButton() {
     refs.btnLoadMore.style.visibility = 'visible';
   }
 }
-
+// infinity scroll
 let loading = false;
 
 window.addEventListener('scroll', async () => {
@@ -82,7 +82,7 @@ window.addEventListener('scroll', async () => {
     loading = false;
   }
 });
-//
+// btn "up"
 const scrollBtn = document.querySelector('#scrollBtn');
 
 scrollBtn.addEventListener('click', () => {
