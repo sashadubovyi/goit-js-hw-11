@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   align-items: center;
 }
@@ -6,16 +12,12 @@ body {
   display: flex;
   justify-content: center;
   gap: 10px;
-  background: linear-gradient(
-    109.6deg,
-    rgba(0, 0, 0, 0.876) 11.2%,
-    rgb(63, 61, 61) 78.9%
-  );
   padding-top: 10px;
   padding-bottom: 10px;
   position: sticky;
   top: 0;
   z-index: 1;
+  text-align: center;
 }
 
 input {
@@ -67,6 +69,10 @@ input {
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
+.photo-card:hover {
+  scale: 1.01;
+}
+
 img {
   width: 500px;
   height: 300px;
@@ -77,6 +83,9 @@ img {
   padding-left: 10px;
   display: flex;
   gap: 10px;
+  /* padding-top: 5px; */
+  padding-bottom: 5px;
+  font-size: 15px;
 }
 
 .load-more {
