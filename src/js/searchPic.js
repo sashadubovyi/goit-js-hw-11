@@ -36,6 +36,7 @@ export async function searchInputPictures(evt) {
       Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
       );
+      refs.btnLoadMore.style.visibility = 'hidden';
       return;
     }
     state.totalHits = data.totalHits;
@@ -58,7 +59,6 @@ export async function loadMorePictures() {
   const data = await fetchPictures(state);
   refs.gallery.insertAdjacentHTML('beforeend', renderPictures(data.hits));
   lightbox.refresh();
-  updateLoadMoreButton();
 }
 
 function updateLoadMoreButton() {
