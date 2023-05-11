@@ -69,3 +69,15 @@ function updateLoadMoreButton() {
     refs.btnLoadMore.style.visibility = 'visible';
   }
 }
+
+let loading = false;
+
+window.addEventListener('scroll', async () => {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+  if (scrollTop + clientHeight >= scrollHeight - 50 && !loading) {
+    loading = true;
+    await loadMorePictures();
+    loading = false;
+  }
+});
