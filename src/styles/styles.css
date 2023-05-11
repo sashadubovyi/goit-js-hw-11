@@ -56,7 +56,7 @@ input {
 }
 
 .gallery {
-  padding-top: 20px;
+  padding-top: 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -72,6 +72,7 @@ input {
 
 .photo-card:hover {
   scale: 1.01;
+  transition: all 0.2s ease-in-out 0ms;
 }
 
 .web-img {

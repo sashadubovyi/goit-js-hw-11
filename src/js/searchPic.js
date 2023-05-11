@@ -42,6 +42,7 @@ export async function searchInputPictures(evt) {
     refs.gallery.insertAdjacentHTML('beforeend', renderPictures(data.hits));
     lightbox.refresh();
     updateLoadMoreButton();
+    Notify.success(`Hooray! We found ${state.totalHits} images.`);
   } catch (error) {
     Notify.failure(
       'Oops! Something went wrong while loading the page. Please try again later.'
