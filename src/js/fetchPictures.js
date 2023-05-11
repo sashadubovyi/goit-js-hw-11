@@ -16,10 +16,5 @@ export async function fetchPictures({ symbol, currentPage, perPage }) {
   const response = await axios.get(`${BASE_URL}${END_POINT}`, {
     params: params,
   });
-
-  if (response.status !== 200) {
-    throw new Error(response.status);
-  }
-
   return response.data;
 }

@@ -76,6 +76,12 @@ input {
 img {
   width: 500px;
   height: 300px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out;
+}
+
+img:hover {
+  filter: grayscale(0%);
 }
 
 .info {
@@ -83,7 +89,6 @@ img {
   padding-left: 10px;
   display: flex;
   gap: 10px;
-  /* padding-top: 5px; */
   padding-bottom: 5px;
   font-size: 15px;
 }
@@ -91,7 +96,7 @@ img {
 .load-more {
   justify-content: center;
   cursor: pointer;
-  background: rgb(0, 0, 0);
+  background: #fff;
   border: none;
   outline: none;
   width: 200px;
@@ -99,15 +104,14 @@ img {
   font-size: 16px;
   border-radius: 9999px;
   box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0.434);
-  color: #fff;
+  color: rgb(0, 0, 0);
   transition: all 0.2s ease-in-out 0ms;
   position: absolute;
   margin-top: 40px;
-
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .load-more:hover {
-  background-color: #1b1b1b;
-  box-shadow: inset 2px 5px 10px rgba(53, 53, 53, 0.632);
+  background-color: #f2f2f2;
+  box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.632);
 }

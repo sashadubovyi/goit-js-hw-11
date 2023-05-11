@@ -2,6 +2,10 @@ import { Notify } from 'notiflix';
 import { refs } from './refs';
 import { fetchPictures } from './fetchPictures';
 import { renderPictures } from './render';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
+const lightbox = new SimpleLightbox('.gallery a');
 
 const state = {
   currentPage: 1,
@@ -36,6 +40,7 @@ export async function searchInputPictures(evt) {
     }
     state.totalHits = data.totalHits;
     refs.gallery.insertAdjacentHTML('beforeend', renderPictures(data.hits));
+    lightbox.refresh();
     updateLoadMoreButton();
   } catch (error) {
     Notify.failure(
@@ -51,6 +56,7 @@ export async function loadMorePictures() {
 
   const data = await fetchPictures(state);
   refs.gallery.insertAdjacentHTML('beforeend', renderPictures(data.hits));
+  lightbox.refresh();
   updateLoadMoreButton();
 }
 
