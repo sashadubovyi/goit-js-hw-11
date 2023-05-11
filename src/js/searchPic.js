@@ -13,6 +13,7 @@ const state = {
   totalHits: null,
   symbol: '',
 };
+
 // load pictures after search
 export async function searchInputPictures(evt) {
   evt.preventDefault();
