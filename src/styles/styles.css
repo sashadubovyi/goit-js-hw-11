@@ -53,6 +53,7 @@ input:active {
 
 @media only screen and (max-width: 760px) {
   input {
+    width: 200px;
     font-size: 14px;
     margin-left: 5px;
   }
@@ -77,6 +78,7 @@ input:active {
 
 @media only screen and (max-width: 760px) {
   .btn-search {
+    width: 90px;
     font-size: 14px;
     margin-right: 5px;
   }
