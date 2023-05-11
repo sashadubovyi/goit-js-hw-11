@@ -51,6 +51,20 @@ input:active {
     0 -6px 4px #fefefe, inset 0 0 5px 3px #999, inset 0 0 15px #aaa;
 }
 
+@media only screen and (min-width: 780px) {
+  input {
+    width: 300px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 380px) {
+  input {
+    width: 250px;
+    font-size: 14px;
+  }
+}
+
 .btn-search {
   display: flex;
   align-items: center;
@@ -66,6 +80,13 @@ input:active {
   font-weight: 600;
   color: #606060;
   text-shadow: 0 1px #fff;
+}
+
+@media only screen and (max-width: 780px) {
+  .btn-search {
+    width: 100px;
+    font-size: 14px;
+  }
 }
 
 .btn-search:hover {
